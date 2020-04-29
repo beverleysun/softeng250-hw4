@@ -1,4 +1,4 @@
-# softeng250-hw4
+# SOFTENG 250 Homework 4 for University of Auckland Software Engineering
 ## Various processing of directed graphs
 
 ```
