@@ -11,4 +11,4 @@ Given input directed graph, G, the code should do the following:
 6.  If the G has no cycles, then your code should output topological ordering of G.
 ```
 
-* * See example inputs and outputs in the hw4.pdf file * *
+*See example inputs and outputs in the hw4.pdf file*
