@@ -20,13 +20,13 @@ public class Main {
         String outputFileName = fileNameScanner.nextLine();
         Printer printer;
 
-        // try create new output file
+        // Try create new output file
         try {
             File outputFile = new File(outputFileName);
             if (outputFile.createNewFile()) {
                 System.out.println("File created: " + outputFileName);
 
-                // try create a new file writer
+                // Try create a new file writer
                 try {
                     FileWriter fileWriter = new FileWriter(outputFileName);
                     printer = new Printer(fileWriter);
@@ -45,12 +45,15 @@ public class Main {
             printer = null;
         }
 
-        // main execution for the homework, try creating adjacency list representation of graph
+        // Main execution for the homework.
+        // Try creating adjacency list representation of graph
         try {
             AdjacencyList adjacencyList = new AdjacencyList(inputFileName);
 
             List<Integer> sameInOut = adjacencyList.sameInOut();
-            printer.writeSameInOut(sameInOut);
+            List<Double> averageInOut = adjacencyList.averageInOut();
+            printer.write(sameInOut);
+            printer.write(averageInOut);
 
         } catch (FileNotFoundException e) {
             System.out.println("Input file not found");

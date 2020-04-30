@@ -4,6 +4,9 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.util.List;
 
+/**
+ * Writes to a specified file
+ */
 public class Printer {
     FileWriter _fileWriter;
 
@@ -12,15 +15,18 @@ public class Printer {
     }
 
 
-    public void writeSameInOut(List<Integer> sameInOutList) {
+    public void write(List<? extends Number> sameInOutList) {
 
         StringBuilder stringBuilder = new StringBuilder();
 
-        for (Integer integer: sameInOutList) {
+        // Create string representation of vertices with same in and out degrees
+        for (Number integer: sameInOutList) {
             stringBuilder.append(integer + " ");
         }
 
         String sameInOutStr = stringBuilder.toString();
+
+        // Write string to output file
         try {
             _fileWriter.write(sameInOutStr.trim() + "\n");
         } catch (IOException e) {

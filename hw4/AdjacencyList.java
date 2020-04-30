@@ -26,13 +26,13 @@ public class AdjacencyList {
     }
 
     private void constructList(Scanner readFile) {
-        // new array list for each vertex in the graph
+        // New array list for each vertex in the graph
         for (int i = 0; i < _numVertices; i++) {
             _inDegree.add(new ArrayList<Integer>());
             _outDegree.add(new ArrayList<Integer>());
         }
 
-        // adds edges to the lists where an edge starts from vOrigin and ends at vDestination
+        // Adds edges to the lists where an edge starts from vOrigin and ends at vDestination
         while (readFile.hasNextLine()){
             String pair = readFile.nextLine();
             int vOrigin = Integer.parseInt(pair.substring(0,1));
@@ -52,5 +52,27 @@ public class AdjacencyList {
             }
         }
         return(sameInOut);
+    }
+
+    public List<Double> averageInOut () {
+        double sumIn = 0;
+        double sumOut = 0;
+        List<Double> averageInOut = new ArrayList<Double>();
+
+        for (List<Integer> list: _inDegree){
+            sumIn += list.size();
+        }
+
+        for (List<Integer> list: _outDegree){
+            sumOut += list.size();
+        }
+
+        double avIn = sumIn/_numVertices;
+        double avOut = sumOut/_numVertices;
+
+        averageInOut.add(avIn);
+        averageInOut.add(avOut);
+
+        return averageInOut;
     }
 }
