@@ -18,17 +18,19 @@ public class EdgeList {
     int _numVertices;
 
     public EdgeList(String fileName) throws FileNotFoundException{
-
         File input = new File(fileName);
         Scanner readFile = new Scanner(input);
         _numVertices = Integer.parseInt(readFile.nextLine());
+        constructList(readFile);
+        readFile.close();
+    }
 
+    private void constructList(Scanner readFile) {
         // new array list for each vertex in the graph
         for (int i = 0; i < _numVertices; i++) {
             _inDegree.add(new ArrayList<Integer>());
             _outDegree.add(new ArrayList<Integer>());
         }
-
 
         // adds edges to the lists where an edge starts from vOrigin and ends at vDestination
         while (readFile.hasNextLine()){
@@ -39,6 +41,6 @@ public class EdgeList {
             _inDegree.get(vDestination).add(vOrigin);
             _outDegree.get(vOrigin).add(vDestination);
         }
-        readFile.close();
     }
+
 }
