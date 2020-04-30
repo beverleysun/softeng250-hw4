@@ -2,7 +2,7 @@
 ## Various processing of directed graphs
 
 ```
-Given input directed graph, G, the code should do the following:
+Given a directed graph input, G, the code should do the following:
 1.  Output all the vertices that have the same in and out degrees.
 2.  Output the average in-degree and the average out-degree of vertices.
 3.  Test if G has a cycle.
