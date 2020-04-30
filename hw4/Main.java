@@ -1,8 +1,6 @@
 package hw4;
 
-import java.io.File;
 import java.io.FileNotFoundException;
-import java.io.FileReader;
 import java.util.Scanner;
 
 public class Main {
@@ -14,12 +12,9 @@ public class Main {
         String fileName = fileNameScanner.nextLine();
 
         try {
-            EdgeList edgeList = new EdgeList(fileName);
+            AdjacencyList adjacencyList = new AdjacencyList(fileName);
         } catch (FileNotFoundException e) {
             System.out.println("File not found");
         }
-
-
     }
-
 }

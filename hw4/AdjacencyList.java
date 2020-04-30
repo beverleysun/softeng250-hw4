@@ -10,14 +10,14 @@ import java.util.Scanner;
  * Reads from a text file of edges and puts each edge into and inDegree list and outDegree list
  * See more info on the contents of the text file in hw4.pdf
  */
-public class EdgeList {
+public class AdjacencyList {
 
     List<List<Integer>> _inDegree = new ArrayList<List<Integer>>();
     List<List<Integer>> _outDegree = new ArrayList<List<Integer>>();
 
     int _numVertices;
 
-    public EdgeList(String fileName) throws FileNotFoundException{
+    public AdjacencyList(String fileName) throws FileNotFoundException{
         File input = new File(fileName);
         Scanner readFile = new Scanner(input);
         _numVertices = Integer.parseInt(readFile.nextLine());
