@@ -22,13 +22,12 @@ public class Printer {
 
         String sameInOutStr = stringBuilder.toString();
         try {
-            _fileWriter.write(sameInOutStr.trim());
+            _fileWriter.write(sameInOutStr.trim() + "\n");
         } catch (IOException e) {
             e.printStackTrace();
         }
 
     }
-
 
     public void closeOutputFile () {
         try {
