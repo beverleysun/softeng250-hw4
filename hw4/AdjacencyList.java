@@ -43,4 +43,14 @@ public class AdjacencyList {
         }
     }
 
+    public List<Integer> sameInOut () {
+        List<Integer> sameInOut = new ArrayList<Integer>();
+
+        for (int i = 0; i < _numVertices; i++) {
+            if (_inDegree.get(i).size() == _outDegree.get(i).size()) {
+                sameInOut.add(i);
+            }
+        }
+        return(sameInOut);
+    }
 }

@@ -1,6 +1,7 @@
 package hw4;
 
 import java.io.FileNotFoundException;
+import java.util.List;
 import java.util.Scanner;
 
 public class Main {
@@ -13,6 +14,9 @@ public class Main {
 
         try {
             AdjacencyList adjacencyList = new AdjacencyList(fileName);
+            List<Integer> sameInOut = adjacencyList.sameInOut();
+            System.out.println(sameInOut);
+
         } catch (FileNotFoundException e) {
             System.out.println("File not found");
         }
