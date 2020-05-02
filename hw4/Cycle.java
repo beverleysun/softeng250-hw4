@@ -1,10 +1,17 @@
 package hw4;
 
-import java.util.*;
+import java.util.List;
+import java.util.ArrayList;
+import java.util.Stack;
+import java.util.Collections;
+import java.util.Objects;
 
+/**
+ * Represents one cycle of a graph
+ */
 public class Cycle {
+    private final List<Integer> _cycleList;
 
-    private List<Integer> _cycleList;
     public Cycle (Stack<Integer> stack) {
         _cycleList = new ArrayList<Integer>(stack);
         Collections.sort(_cycleList);
