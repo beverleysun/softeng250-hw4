@@ -3,6 +3,7 @@ package hw4;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.util.ArrayList;
+import java.util.LinkedList;
 import java.util.List;
 import java.util.Scanner;
 
@@ -28,8 +29,8 @@ public class AdjacencyList {
     private void constructList(Scanner readFile) {
         // New array list for each vertex in the graph
         for (int i = 0; i < _numVertices; i++) {
-            _inDegree.add(new ArrayList<Integer>());
-            _outDegree.add(new ArrayList<Integer>());
+            _inDegree.add(new LinkedList<Integer>());
+            _outDegree.add(new LinkedList<Integer>());
         }
 
         // Adds edges to the lists where an edge starts from vOrigin and ends at vDestination
@@ -74,5 +75,13 @@ public class AdjacencyList {
         averageInOut.add(avOut);
 
         return averageInOut;
+    }
+
+    public List<List<Integer>> getOutDegree() {
+        return _outDegree;
+    }
+
+    public int getNumVertices() {
+        return _numVertices;
     }
 }
