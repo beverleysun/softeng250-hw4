@@ -15,24 +15,32 @@ public class Printer {
     }
 
 
-    public void write(List<? extends Number> sameInOutList) {
+    public void write(List<? extends Number> list) {
 
         StringBuilder stringBuilder = new StringBuilder();
 
         // Create string representation of vertices with same in and out degrees
-        for (Number integer: sameInOutList) {
+        for (Number integer: list) {
             stringBuilder.append(integer + " ");
         }
 
-        String sameInOutStr = stringBuilder.toString();
+        String str = stringBuilder.toString();
 
         // Write string to output file
         try {
-            _fileWriter.write(sameInOutStr.trim() + "\n");
+            _fileWriter.write(str.trim() + "\n");
         } catch (IOException e) {
             e.printStackTrace();
         }
 
+    }
+
+    public void write(String str) {
+        try {
+            _fileWriter.write(str.trim() + "\n");
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 
     public void closeOutputFile () {
