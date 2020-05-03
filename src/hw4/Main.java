@@ -1,4 +1,4 @@
-package hw4;
+package src.hw4;
 
 import java.util.Scanner;
 import java.util.List;

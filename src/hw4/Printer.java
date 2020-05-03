@@ -1,4 +1,4 @@
-package hw4;
+package src.hw4;
 
 import java.io.FileWriter;
 import java.io.IOException;

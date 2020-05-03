@@ -1,4 +1,4 @@
-package hw4;
+package src.hw4;
 
 import java.io.File;
 import java.io.FileNotFoundException;
