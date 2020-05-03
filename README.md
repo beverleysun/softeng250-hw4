@@ -23,7 +23,7 @@ You must have a JRE (Java Runtime Environment) installed. You can download one [
    * Use `cd folderpath`
 3. Use `java -jar softeng250-hw4.jar` to execute the file.
 
-### Second Method ###
+#### Second Method ####
 1. Download this [repository](https://github.com/beverleysun/softeng250-hw4/archive/master.zip).
 2. Extract the `.zip` file into a directory of your choice.
 3. Open up the Command Prompt (Windows) or the Terminal (Mac).
