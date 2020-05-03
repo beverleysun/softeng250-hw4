@@ -100,8 +100,9 @@ public class Main {
 
                 numCycles = allCycles.size(); // Update num cycles for to include only unique cycles
             }
-        } else {
+        } else { // No cycles, so there exists a topological order
             printer.write("Order:");
+            printer.write(new TopologicalSort(adjList).getTopOrderStr());
         }
 
         printer.closeOutputFile();
