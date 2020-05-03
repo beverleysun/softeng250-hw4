@@ -8,15 +8,13 @@ import java.util.List;
  * Writes to a specified file
  */
 public class Printer {
-    FileWriter _fileWriter;
+    private final FileWriter _fileWriter;
 
     public Printer(FileWriter fileWriter) {
         _fileWriter = fileWriter;
     }
 
-
     public void write(List<? extends Number> list, boolean newLine) {
-
         StringBuilder stringBuilder = new StringBuilder();
 
         // Create string representation of vertices with same in and out degrees
@@ -32,7 +30,6 @@ public class Printer {
         } catch (IOException e) {
             e.printStackTrace();
         }
-
     }
 
     public void write(String str, boolean newLine) {

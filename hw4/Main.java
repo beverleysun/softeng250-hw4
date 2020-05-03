@@ -4,14 +4,15 @@ import java.util.Scanner;
 import java.util.List;
 
 public class Main {
-
     public static void main(String args[]) {
-
         Scanner fileNameScanner = new Scanner(System.in);
+
+        // Get input file name
         System.out.println("Enter your input file name: ");
         String inputFileName = fileNameScanner.nextLine();
         AdjacencyList adjList = new AdjacencyList(inputFileName);
 
+        // Get output file name
         System.out.println("Enter output file name (Cannot be an existing file name in the working directory): ");
         String outputFileName = fileNameScanner.nextLine();
         FileCreator outputFile= new FileCreator(outputFileName);
@@ -34,13 +35,13 @@ public class Main {
             outputFile.write(new TopologicalSort(adjList).getTopOrderStr(), true);
         }
 
-        // Output if graph has, at most, 3 cycles
-        if (numCycles <= 3) {
+        if (numCycles <= 3) { // Output if graph has at most 3 cycles
             outputFile.write("Yes", false);
         } else {
             outputFile.write("No", false);
         }
 
+        // Close
         outputFile.closeOutputFile();
     }
 }

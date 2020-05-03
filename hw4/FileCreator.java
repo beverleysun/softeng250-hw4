@@ -6,11 +6,13 @@ import java.io.IOException;
 import java.util.List;
 
 public class FileCreator{
+    private Printer _printer = null;
 
-    Printer _printer;
     public FileCreator(String fileName) {
         try {
             File outputFile = new File(fileName);
+
+            // Create new file
             if (outputFile.createNewFile()) {
                 System.out.println("File created: " + fileName);
 

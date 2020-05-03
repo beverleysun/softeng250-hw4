@@ -3,12 +3,14 @@ package hw4;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * Performs a topological sort on a graph
+ */
 public class TopologicalSort {
-
     private final List<List<Integer>> _inDegree;
-    private final int[] _topologicalArr;
     private final List<Integer> _candidates = new ArrayList<Integer>();
     private final boolean[] _added;
+    private final int[] _topologicalArr;
     private final int _numVertices;
 
     public TopologicalSort(AdjacencyList adjList) {
@@ -48,12 +50,10 @@ public class TopologicalSort {
     }
 
     public String getTopOrderStr(){
-
         StringBuilder str = new StringBuilder();
         for (int vertex: _topologicalArr) {
             str.append(vertex).append(" ");
         }
-
         return str.toString().trim();
     }
 }
