@@ -18,9 +18,17 @@ public class AdjacencyList {
 
     int _numVertices;
 
-    public AdjacencyList(String fileName) throws FileNotFoundException{
+    public AdjacencyList(String fileName){
         File input = new File(fileName);
-        Scanner readFile = new Scanner(input);
+        Scanner readFile = null;
+
+        try {
+            readFile = new Scanner(input);
+        } catch (FileNotFoundException e) {
+            System.out.println("Input file not found");
+            System.exit(0);
+        }
+
         _numVertices = Integer.parseInt(readFile.nextLine());
         constructList(readFile);
         readFile.close();
@@ -52,6 +60,7 @@ public class AdjacencyList {
                 sameInOut.add(i);
             }
         }
+
         return(sameInOut);
     }
 

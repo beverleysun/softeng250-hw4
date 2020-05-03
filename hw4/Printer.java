@@ -15,13 +15,13 @@ public class Printer {
     }
 
 
-    public void write(List<? extends Number> list) {
+    public void write(List<? extends Number> list, boolean newLine) {
 
         StringBuilder stringBuilder = new StringBuilder();
 
         // Create string representation of vertices with same in and out degrees
         for (Number integer: list) {
-            stringBuilder.append(integer + " ");
+            stringBuilder.append(integer).append(" ");
         }
 
         String str = stringBuilder.toString();
