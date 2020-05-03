@@ -35,9 +35,14 @@ public class Printer {
 
     }
 
-    public void write(String str) {
+    public void write(String str, boolean newLine) {
         try {
-            _fileWriter.write(str.trim() + "\n");
+            if (newLine) {
+                _fileWriter.write(str.trim() + "\n");
+            } else {
+                _fileWriter.write(str.trim());
+            }
+
         } catch (IOException e) {
             e.printStackTrace();
         }

@@ -80,7 +80,7 @@ public class Main {
         }
 
         if (numCycles > 0) {
-            printer.write("Cycle(s):");
+            printer.write("Cycle(s):", true);
             boolean alreadyPrinted = false;
 
             // Check each vertex's DFS
@@ -93,7 +93,7 @@ public class Main {
                         // Print to file only one of the cycles
                         if (!alreadyPrinted) {
                             alreadyPrinted = true;
-                            printer.write(cycle.toString());
+                            printer.write(cycle.toString(), true);
                         }
                     }
                 }
@@ -101,8 +101,15 @@ public class Main {
                 numCycles = allCycles.size(); // Update num cycles for to include only unique cycles
             }
         } else { // No cycles, so there exists a topological order
-            printer.write("Order:");
-            printer.write(new TopologicalSort(adjList).getTopOrderStr());
+            printer.write("Order:", true);
+            printer.write(new TopologicalSort(adjList).getTopOrderStr(), true);
+        }
+
+        // Output if graph has, at most, 3 cycles
+        if (numCycles <= 3) {
+            printer.write("Yes", false);
+        } else {
+            printer.write("No", false);
         }
 
         printer.closeOutputFile();
