@@ -1,27 +1,27 @@
 package hw4;
 
-import java.util.List;
-import java.util.Stack;
-import java.util.Set;
-import java.util.HashSet;
+import java.util.*;
 
 /**
  * Performs a DFS search for cycles in a tree
  */
 public class DFS {
-    private final boolean[] _visited;
-    private final int _startVertex;
-    private final List<List<Integer>> _outDegree;
-    private final Stack<Integer> _dfsTreeStack = new Stack<Integer>();
-    private final Set<Cycle> _cycles = new HashSet<Cycle>();
+    private List<List<Integer>> _outDegree;
+    private Stack<Integer> _dfsTreeStack = new Stack<Integer>();
+    private Set<Cycle> _cycles = new HashSet<Cycle>();
     private int _numCycles;
+    private int _startVertex;
+    private boolean[] _visited;
 
-    public DFS(AdjacencyList adjList, int startVertex){
+    public DFS(AdjacencyList adjList){
         _outDegree = adjList.getOutDegree();
         _visited = new boolean[adjList.getNumVertices()];
-        _startVertex = startVertex;
 
-        performCycleSearch(startVertex);
+        for (int i = 0; i < adjList.getNumVertices(); i++){
+            _startVertex = i;
+            performCycleSearch(i);
+        }
+        _numCycles = _cycles.size();
     }
 
     private void performCycleSearch (int startVertex) {
@@ -33,7 +33,6 @@ public class DFS {
 
             // means there is a cycle going back to the _startVertex
             if (vertexConnected == _startVertex) {
-                _numCycles++;
                 _cycles.add(new Cycle(_dfsTreeStack));
             }
 
@@ -48,7 +47,9 @@ public class DFS {
         return _numCycles;
     }
 
-    public Set<Cycle> getCycleSet() {
-        return _cycles;
+    public String getOneCycleStr() {
+        List<Cycle> cycles = new ArrayList<Cycle>(_cycles);
+        return cycles.get(0).toString();
+
     }
 }

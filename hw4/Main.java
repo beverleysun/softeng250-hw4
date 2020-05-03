@@ -59,47 +59,19 @@ public class Main {
         List<DFS> dfsList= new ArrayList<DFS>();
         List<Integer> sameInOut = adjList.sameInOut(); // Vertices with the same in and out degree
         List<Double> averageInOut = adjList.averageInOut(); // Avg in and out degrees of all vertices
-
-        // Write to output file
-        printer.write(sameInOut);
-        printer.write(averageInOut);
+        DFS dfs = new DFS(adjList); // Test for cycles
+        int numCycles = dfs.getNumCycles();
 
 
         /*
-        Test for cycles
-         */
-
-        int numCycles = 0;
-        Set<Cycle> allCycles = new HashSet<Cycle>();
-
-        // Run DFS on all vertices
-        for (int i = 0; i < adjList.getNumVertices(); i++){
-            DFS dfs = new DFS(adjList, i);
-            numCycles += dfs.getNumCycles();
-            dfsList.add(dfs);
-        }
+        Write to output file
+        */
+        printer.write(sameInOut);
+        printer.write(averageInOut);
 
         if (numCycles > 0) {
             printer.write("Cycle(s):", true);
-            boolean alreadyPrinted = false;
-
-            // Check each vertex's DFS
-            for (DFS dfs: dfsList) {
-                if (dfs.getNumCycles() > 0) {
-                    Set<Cycle> cycles = dfs.getCycleSet(); // cycle set for each vertex
-                    for (Cycle cycle: cycles){
-                        allCycles.add(cycle);
-
-                        // Print to file only one of the cycles
-                        if (!alreadyPrinted) {
-                            alreadyPrinted = true;
-                            printer.write(cycle.toString(), true);
-                        }
-                    }
-                }
-
-                numCycles = allCycles.size(); // Update num cycles for to include only unique cycles
-            }
+            printer.write(dfs.getOneCycleStr(), true);
         } else { // No cycles, so there exists a topological order
             printer.write("Order:", true);
             printer.write(new TopologicalSort(adjList).getTopOrderStr(), true);
