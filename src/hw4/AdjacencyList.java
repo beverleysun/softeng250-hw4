@@ -60,8 +60,7 @@ public class AdjacencyList {
                 sameInOut.add(i);
             }
         }
-
-        return(sameInOut);
+        return sameInOut;
     }
 
     public List<Double> averageInOut () {
