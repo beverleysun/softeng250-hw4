@@ -29,5 +29,5 @@ You must have a JRE (Java Runtime Environment) installed. You can download it [h
 3. Open up the Command Prompt (Windows) or the Terminal (Mac)
 4. Navigate to the extracted folder `softeng250-hw4-master`
    * Use `cd 'insertfolderpath'` without the quotation marks
-5. Use `javac -cp ./src/hw4/Main.java`
+5. Use `javac -cp ./ src/hw4/Main.java`
 6. Use `java src/hw4/Main`
