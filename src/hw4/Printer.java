@@ -26,7 +26,11 @@ public class Printer {
 
         // Write string to output file
         try {
-            _fileWriter.write(str.trim() + "\n");
+            if (newLine) {
+                _fileWriter.write(str.trim() + "\n");
+            } else {
+                _fileWriter.write(str.trim());
+            }
         } catch (IOException e) {
             e.printStackTrace();
         }
