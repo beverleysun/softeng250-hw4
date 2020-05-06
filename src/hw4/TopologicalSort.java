@@ -1,13 +1,14 @@
 package src.hw4;
 
 import java.util.ArrayList;
+import java.util.LinkedList;
 import java.util.List;
 
 /**
  * Performs a topological sort on a graph
  */
 public class TopologicalSort {
-    private final List<List<Integer>> _inDegree;
+    private final List<LinkedList<Integer>> _inDegree;
     private final List<Integer> _candidates = new ArrayList<Integer>();
     private final List<Integer> _topologicalOrder = new ArrayList<Integer>();
     private final boolean[] _added;

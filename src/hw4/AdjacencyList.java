@@ -85,12 +85,12 @@ public class AdjacencyList {
         return averageInOut;
     }
 
-    public List<List<Integer>> getOutDegree() {
-        return new ArrayList<List<Integer>>(_outDegree);
+    public List<LinkedList<Integer>> getOutDegree() {
+        return new ArrayList<LinkedList<Integer>>(_outDegree);
     }
 
-    public List<List<Integer>> getInDegree() {
-        return new ArrayList<List<Integer>>(_inDegree);
+    public List<LinkedList<Integer>> getInDegree() {
+        return new ArrayList<LinkedList<Integer>>(_inDegree);
     }
 
     public int getNumVertices() {

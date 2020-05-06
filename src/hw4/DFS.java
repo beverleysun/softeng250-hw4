@@ -1,16 +1,12 @@
 package src.hw4;
 
-import java.util.List;
-import java.util.ArrayList;
-import java.util.Stack;
-import java.util.Set;
-import java.util.HashSet;
+import java.util.*;
 
 /**
  * Performs a DFS search for cycles in a tree
  */
 public class DFS {
-    private final List<List<Integer>> _outDegree;
+    private final List<LinkedList<Integer>> _outDegree;
     private final Stack<Integer> _dfsTreeStack = new Stack<Integer>();
     private final Set<Cycle> _cycles = new HashSet<Cycle>();
     private final boolean[] _visited;
