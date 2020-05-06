@@ -6,4 +6,5 @@
 # User specific
 *.docx
 *.pdf
-
+*.zip
+/to-submit/
