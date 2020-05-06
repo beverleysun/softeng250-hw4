@@ -10,11 +10,11 @@ import java.util.Objects;
  * Represents one cycle of a graph
  */
 public class Cycle {
-    private final List<Integer> _cycleList;
+    private final List<Integer> _cycle;
 
     public Cycle (Stack<Integer> stack) {
-        _cycleList = new ArrayList<Integer>(stack);
-        Collections.sort(_cycleList);
+        _cycle = new ArrayList<Integer>(stack);
+        Collections.sort(_cycle);
     }
 
     @Override
@@ -22,11 +22,11 @@ public class Cycle {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Cycle cycle = (Cycle) o;
-        if (this._cycleList.size() != cycle._cycleList.size()) {
+        if (this._cycle.size() != cycle._cycle.size()) {
             return false;
         } else {
-            for (int i = 0; i < this._cycleList.size(); i++) {
-                if (this._cycleList.get(i) != cycle._cycleList.get(i)) {
+            for (int i = 0; i < this._cycle.size(); i++) {
+                if (this._cycle.get(i) != cycle._cycle.get(i)) {
                     return false;
                 }
             }
@@ -36,13 +36,13 @@ public class Cycle {
 
     @Override
     public int hashCode() {
-        return Objects.hash(_cycleList);
+        return Objects.hash(_cycle);
     }
 
     @Override
     public String toString() {
         StringBuilder str = new StringBuilder();
-        for (Integer integer : _cycleList) {
+        for (Integer integer : _cycle) {
             str.append(integer + " ");
         }
 
