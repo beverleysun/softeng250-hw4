@@ -11,22 +11,24 @@ import java.util.Objects;
  */
 public class Cycle {
     private final List<Integer> _cycle;
+    private final List<Integer> _sortedCycle;
 
     public Cycle (Stack<Integer> stack) {
         _cycle = new ArrayList<Integer>(stack);
-        Collections.sort(_cycle);
+        _sortedCycle = new ArrayList<Integer>(stack);
+        Collections.sort(_sortedCycle);
     }
 
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
-        Cycle cycle = (Cycle) o;
-        if (this._cycle.size() != cycle._cycle.size()) {
+        Cycle otherCycle = (Cycle) o;
+        if (this._sortedCycle.size() != otherCycle._sortedCycle.size()) {
             return false;
         } else {
-            for (int i = 0; i < this._cycle.size(); i++) {
-                if (this._cycle.get(i) != cycle._cycle.get(i)) {
+            for (int i = 0; i < this._sortedCycle.size(); i++) {
+                if (this._sortedCycle.get(i) != otherCycle._sortedCycle.get(i)) {
                     return false;
                 }
             }
