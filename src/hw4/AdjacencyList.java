@@ -13,8 +13,8 @@ import java.util.Scanner;
  */
 public class AdjacencyList {
 
-    private final List<List<Integer>> _inDegree = new ArrayList<List<Integer>>();
-    private final List<List<Integer>> _outDegree = new ArrayList<List<Integer>>();
+    private final List<LinkedList<Integer>> _inDegree = new ArrayList<LinkedList<Integer>>();
+    private final List<LinkedList<Integer>> _outDegree = new ArrayList<LinkedList<Integer>>();
 
     int _numVertices;
 
