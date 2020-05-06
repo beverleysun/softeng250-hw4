@@ -1,4 +1,9 @@
+# IntelliJ specific
 /hw4.iml
 /out/
 /.idea/
-/META-INF/
+
+# User specific
+.docx
+.pdf
+
