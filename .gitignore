@@ -4,6 +4,6 @@
 /.idea/
 
 # User specific
-.docx
-.pdf
+*.docx
+*.pdf
 
