@@ -1,4 +1,4 @@
-package src.softeng250;
+package src.test;
 
 import java.io.BufferedReader;
 import java.io.File;
