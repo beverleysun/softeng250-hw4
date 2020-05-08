@@ -1,5 +1,6 @@
 package src.hw4;
 
+import java.util.Arrays;
 import java.util.List;
 import java.util.ArrayList;
 import java.util.LinkedList;
@@ -14,23 +15,26 @@ public class DFS {
     private final List<LinkedList<Integer>> _outDegree;
     private final Stack<Integer> _dfsTreeStack = new Stack<Integer>();
     private final Set<Cycle> _cycles = new HashSet<Cycle>();
-    private final boolean[] _visited;
     private final int _numCycles;
     private int _startVertex;
 
     public DFS(AdjacencyList adjList){
         _outDegree = adjList.getOutDegree();
-        _visited = new boolean[adjList.getNumVertices()];
 
         for (int i = 0; i < adjList.getNumVertices(); i++){
             _startVertex = i;
+            _dfsTreeStack.clear();
             performCycleSearch(i);
         }
         _numCycles = _cycles.size();
+
+        for (Cycle cycle: _cycles) {
+            System.out.println(cycle);
+
+        }
     }
 
     private void performCycleSearch (int startVertex) {
-        _visited[startVertex] = true;
         _dfsTreeStack.push(startVertex);
 
         // Check edges of the start vertex
@@ -38,11 +42,12 @@ public class DFS {
 
             // means there is a cycle going back to the _startVertex
             if (vertexConnected == _startVertex) {
-                _cycles.add(new Cycle(_dfsTreeStack));
+                Cycle newCycle = new Cycle(_dfsTreeStack);
+                _cycles.add(newCycle);
             }
 
             // Check if vertex has been visited
-            if (!_visited[vertexConnected]){
+            if (!_dfsTreeStack.contains(vertexConnected)){
                 performCycleSearch(vertexConnected);
             }
         }
