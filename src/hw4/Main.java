@@ -7,7 +7,7 @@ public class Main {
     private String inputFileName;
     private String outputFileName;
     private static final int NUM_TESTS = 28;
-    private static final boolean TEST_MODE = true;
+    private static final boolean TEST_MODE = false;
 
     public static void main(String[] args) {
         Main main = new Main();
