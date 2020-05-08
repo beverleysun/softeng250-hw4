@@ -10,13 +10,19 @@ import java.util.Objects;
  * Represents one cycle of a graph
  */
 public class Cycle {
-    private final List<Integer> _cycle;
-    private final List<Integer> _sortedCycle;
+    private List<Integer> _cycle;
+    private final int minVertex;
 
     public Cycle (Stack<Integer> stack) {
         _cycle = new ArrayList<Integer>(stack);
-        _sortedCycle = new ArrayList<Integer>(stack);
-        Collections.sort(_sortedCycle);
+        minVertex = Collections.min(_cycle);
+        rotateCycleToMin();
+    }
+
+    public void rotateCycleToMin(){
+        while(_cycle.get(0) != minVertex) {
+            Collections.rotate(_cycle,1);
+        }
     }
 
     @Override
@@ -24,11 +30,11 @@ public class Cycle {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Cycle otherCycle = (Cycle) o;
-        if (this._sortedCycle.size() != otherCycle._sortedCycle.size()) {
+        if (this._cycle.size() != otherCycle._cycle.size()) {
             return false;
         } else {
-            for (int i = 0; i < this._sortedCycle.size(); i++) {
-                if (this._sortedCycle.get(i) != otherCycle._sortedCycle.get(i)) {
+            for (int i = 0; i < this._cycle.size(); i++) {
+                if (!this._cycle.get(i).equals(otherCycle._cycle.get(i))) {
                     return false;
                 }
             }
