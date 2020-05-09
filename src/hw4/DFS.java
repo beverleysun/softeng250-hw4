@@ -26,11 +26,6 @@ public class DFS {
             performCycleSearch(i);
         }
         _numCycles = _cycles.size();
-
-        for (Cycle cycle: _cycles) {
-            System.out.println(cycle);
-
-        }
     }
 
     private void performCycleSearch (int startVertex) {
